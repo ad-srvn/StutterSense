@@ -1,0 +1,28 @@
+{
+  "dataset_id": "psusac/sep28k",
+  "configuration": "default",
+  "split": "train",
+  "streaming": true,
+  "materialized_successful_clips": 2000,
+  "attempted_stream_examples": 2000,
+  "decode_failures": 0,
+  "verified_columns": [
+    "audio",
+    "prolongation",
+    "block",
+    "sound_rep",
+    "word_rep",
+    "unsure",
+    "poor_audio_quality",
+    "difficult_to_understand",
+    "interjection",
+    "no_stuttered_words",
+    "natural_pause",
+    "music",
+    "no_speech"
+  ],
+  "identifier_like_columns": [],
+  "audio_feature_repr": "Audio(sampling_rate=None, decode=False, num_channels=None, stream_index=None)",
+  "retrieved_utc": "2026-10-07T22:48:29.574853+00:00",
+  "evaluation_scope": "duplicate-aware clip-level exploratory split; not verified speaker-disjoint"
+}

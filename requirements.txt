@@ -1,0 +1,19 @@
+# Install a platform-appropriate PyTorch build first when CUDA support is required:
+# https://pytorch.org/get-started/locally/
+torch>=2.2,<3
+datasets[audio]>=3.2,<5
+transformers>=4.48,<6
+accelerate>=1.2,<2
+huggingface-hub>=0.27,<2
+soundfile>=0.12,<1
+librosa>=0.10.2,<1
+scipy>=1.11,<2
+scikit-learn>=1.4,<2
+pandas>=2.0,<3
+numpy>=1.26,<3
+matplotlib>=3.8,<4
+seaborn>=0.13,<1
+tqdm>=4.66
+ipywidgets>=8,<9
+jupyterlab>=4,<5
+

@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Environments and secrets
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+
+# Jupyter and editors
+.ipynb_checkpoints/
+.idea/
+.vscode/
+*.swp
+
+# Dataset/model caches
+.cache/
+huggingface/
+data/
+datasets/
+artifacts/
+outputs/
+checkpoints/
+wandb/
+
+# Heavy generated artifacts (curated metrics and figures remain trackable)
+results/*.pt
+results/*.pth
+results/*.ckpt
+results/*.npz
+results/*.npy
+*.zip
+*.parquet
+*.arrow
+
+# Operating systems
+.DS_Store
+Thumbs.db
+

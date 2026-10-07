@@ -1,0 +1,207 @@
+{
+  "summary": [
+    {
+      "model": "hard",
+      "macro_f1": 0.18525457258656366,
+      "micro_f1": 0.36507936507936506,
+      "macro_auroc": 0.8090739247644443,
+      "macro_average_precision": 0.44709666584671404,
+      "hard_brier": 0.08551603555679321,
+      "soft_brier": 0.05950094014406204,
+      "hard_ece": 0.029709734539190933,
+      "soft_ece": 0.027860002835591636,
+      "mean_confidence": 0.871386706829071,
+      "mean_prediction_entropy": 0.493643581867218,
+      "uncertainty_ambiguity_spearman": 0.345776397564721,
+      "high_agreement_hamming_error": 0.054320987654320994,
+      "low_agreement_hamming_error": 0.12602739726027395,
+      "threshold_policy": "fixed_0.5"
+    },
+    {
+      "model": "soft",
+      "macro_f1": 0.26447578301125213,
+      "micro_f1": 0.4044943820224719,
+      "macro_auroc": 0.8280918812012222,
+      "macro_average_precision": 0.49742048323498445,
+      "hard_brier": 0.08339042961597443,
+      "soft_brier": 0.05490367114543915,
+      "hard_ece": 0.04169597532848518,
+      "soft_ece": 0.015979414761066436,
+      "mean_confidence": 0.8596338629722595,
+      "mean_prediction_entropy": 0.5006375908851624,
+      "uncertainty_ambiguity_spearman": 0.31720254721656715,
+      "high_agreement_hamming_error": 0.05185185185185186,
+      "low_agreement_hamming_error": 0.12602739726027398,
+      "threshold_policy": "fixed_0.5"
+    },
+    {
+      "model": "calibrated",
+      "macro_f1": 0.27134639481407274,
+      "micro_f1": 0.4148148148148148,
+      "macro_auroc": 0.8286686975991631,
+      "macro_average_precision": 0.503875523528437,
+      "hard_brier": 0.08316102623939514,
+      "soft_brier": 0.05473586916923523,
+      "hard_ece": 0.0441148517827193,
+      "soft_ece": 0.01569042680164178,
+      "mean_confidence": 0.8590927720069885,
+      "mean_prediction_entropy": 0.5029477477073669,
+      "uncertainty_ambiguity_spearman": 0.3159247360470456,
+      "high_agreement_hamming_error": 0.05185185185185186,
+      "low_agreement_hamming_error": 0.12511415525114156,
+      "threshold_policy": "fixed_0.5"
+    }
+  ],
+  "per_class": [
+    {
+      "model": "hard",
+      "event": "prolongation",
+      "precision": 1.0,
+      "recall": 0.038461538461538464,
+      "f1": 0.07407407407407407,
+      "support": 26,
+      "auroc": 0.8253790005614824,
+      "average_precision": 0.3795194747664002
+    },
+    {
+      "model": "hard",
+      "event": "block",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 36,
+      "auroc": 0.6946548821548821,
+      "average_precision": 0.2206593891598619
+    },
+    {
+      "model": "hard",
+      "event": "sound_rep",
+      "precision": 1.0,
+      "recall": 0.045454545454545456,
+      "f1": 0.08695652173913043,
+      "support": 22,
+      "auroc": 0.8090255068672335,
+      "average_precision": 0.3190849966253792
+    },
+    {
+      "model": "hard",
+      "event": "word_rep",
+      "precision": 0.5,
+      "recall": 0.022222222222222223,
+      "f1": 0.0425531914893617,
+      "support": 45,
+      "auroc": 0.8169934640522876,
+      "average_precision": 0.5052613292755392
+    },
+    {
+      "model": "hard",
+      "event": "interjection",
+      "precision": 0.8775510204081632,
+      "recall": 0.6142857142857143,
+      "f1": 0.7226890756302521,
+      "support": 70,
+      "auroc": 0.8993167701863354,
+      "average_precision": 0.8109581394063896
+    },
+    {
+      "model": "soft",
+      "event": "prolongation",
+      "precision": 0.42857142857142855,
+      "recall": 0.11538461538461539,
+      "f1": 0.18181818181818182,
+      "support": 26,
+      "auroc": 0.8622964626614262,
+      "average_precision": 0.46331230019836056
+    },
+    {
+      "model": "soft",
+      "event": "block",
+      "precision": 1.0,
+      "recall": 0.027777777777777776,
+      "f1": 0.05405405405405406,
+      "support": 36,
+      "auroc": 0.7186447811447811,
+      "average_precision": 0.26896267526227124
+    },
+    {
+      "model": "soft",
+      "event": "sound_rep",
+      "precision": 1.0,
+      "recall": 0.045454545454545456,
+      "f1": 0.08695652173913043,
+      "support": 22,
+      "auroc": 0.8189993459777632,
+      "average_precision": 0.4172352117084614
+    },
+    {
+      "model": "soft",
+      "event": "word_rep",
+      "precision": 0.75,
+      "recall": 0.2,
+      "f1": 0.3157894736842105,
+      "support": 45,
+      "auroc": 0.8329411764705882,
+      "average_precision": 0.5326064681762096
+    },
+    {
+      "model": "soft",
+      "event": "interjection",
+      "precision": 0.851063829787234,
+      "recall": 0.5714285714285714,
+      "f1": 0.6837606837606838,
+      "support": 70,
+      "auroc": 0.9075776397515528,
+      "average_precision": 0.8049857608296195
+    },
+    {
+      "model": "calibrated",
+      "event": "prolongation",
+      "precision": 0.42857142857142855,
+      "recall": 0.11538461538461539,
+      "f1": 0.18181818181818182,
+      "support": 26,
+      "auroc": 0.8607523862998316,
+      "average_precision": 0.46726488178484604
+    },
+    {
+      "model": "calibrated",
+      "event": "block",
+      "precision": 1.0,
+      "recall": 0.027777777777777776,
+      "f1": 0.05405405405405406,
+      "support": 36,
+      "auroc": 0.7183291245791246,
+      "average_precision": 0.28658855897769764
+    },
+    {
+      "model": "calibrated",
+      "event": "sound_rep",
+      "precision": 1.0,
+      "recall": 0.045454545454545456,
+      "f1": 0.08695652173913043,
+      "support": 22,
+      "auroc": 0.8203073904512753,
+      "average_precision": 0.42143150396855517
+    },
+    {
+      "model": "calibrated",
+      "event": "word_rep",
+      "precision": 0.7692307692307693,
+      "recall": 0.2222222222222222,
+      "f1": 0.3448275862068966,
+      "support": 45,
+      "auroc": 0.8362527233115468,
+      "average_precision": 0.537753231291345
+    },
+    {
+      "model": "calibrated",
+      "event": "interjection",
+      "precision": 0.8367346938775511,
+      "recall": 0.5857142857142857,
+      "f1": 0.6890756302521008,
+      "support": 70,
+      "auroc": 0.9077018633540372,
+      "average_precision": 0.8063394416197411
+    }
+  ]
+}
