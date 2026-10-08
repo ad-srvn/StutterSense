@@ -27,6 +27,7 @@ data/
 datasets/
 artifacts/
 outputs/
+stuttersense_outputs*/
 checkpoints/
 wandb/
 
