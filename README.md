@@ -22,8 +22,6 @@ The validated [full-stream run](runs/2026-10-08-full-stream-seed42/README.md) sc
 |---|---|
 | ![Precision–recall curves](runs/2026-10-08-full-stream-seed42/figures/I_precision_recall_curves.png) | ![Risk–coverage curves](runs/2026-10-08-full-stream-seed42/figures/F_risk_coverage.png) |
 
-The original run remains under [`results/`](results/README.md) as a separate historical reference.
-
 ## Method
 
 Five independent event targets are derived from annotation counts:
@@ -81,7 +79,7 @@ python scripts/validate_repo.py
 python -m unittest discover -s tests -v
 ```
 
-CI validates the notebook, both committed result sets, and 14 synthetic tests without downloading the dataset or WavLM.
+CI validates the notebook, the committed revised run, and 14 synthetic tests without downloading the dataset or WavLM.
 
 ## Data and licensing
 
@@ -113,7 +111,6 @@ FluencyBank evaluation is disabled by default. Access requirements are documente
 ```text
 StutterSense.ipynb   Reproducible Colab/local experiment
 runs/                Revised run, metrics, provenance, and figures
-results/             Historical reference run
 tests/               Synthetic unit and smoke tests
 scripts/             Offline repository validation
 ```

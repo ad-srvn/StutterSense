@@ -17,12 +17,10 @@ import nbformat
 
 ROOT = Path(__file__).resolve().parents[1]
 NOTEBOOK = ROOT / "StutterSense.ipynb"
-RESULTS = ROOT / "results"
 REVISED_RUN = ROOT / "runs" / "2026-10-08-full-stream-seed42"
 EVENTS = {"prolongation", "block", "sound_rep", "word_rep", "interjection"}
-MODELS = {"hard", "soft", "calibrated"}
 REVISED_MODELS = {"hard", "soft", "brier_ablation", "ambiguity_multitask"}
-EXPECTED_FIGURES = {
+REVISED_FIGURES = {
     "A_dataset_label_frequency.png",
     "B_annotator_disagreement.png",
     "C_training_validation_curves.png",
@@ -31,13 +29,11 @@ EXPECTED_FIGURES = {
     "F_risk_coverage.png",
     "G_disagreement_vs_uncertainty.png",
     "H_multilabel_error_analysis.png",
+    "I_precision_recall_curves.png",
+    "J_per_event_calibration.png",
     "annotation_count_distribution.png",
     "audio_duration_distribution.png",
     "event_cooccurrence.png",
-}
-REVISED_FIGURES = EXPECTED_FIGURES | {
-    "I_precision_recall_curves.png",
-    "J_per_event_calibration.png",
 }
 
 
@@ -119,73 +115,6 @@ def validate_notebook() -> None:
     ):
         require(required in source, f"Required notebook content is missing: {required}")
     require((ROOT / "tests" / "test_synthetic.py").exists(), "Synthetic test suite is missing")
-
-
-def validate_results() -> None:
-    required_files = {
-        "README.md",
-        "ambiguity_uncertainty.csv",
-        "comparison_table.csv",
-        "config.json",
-        "dataset_provenance.json",
-        "evaluation_metrics.json",
-        "experiment_summary.md",
-        "materialized_clip_metadata.csv",
-        "per_class_metrics.csv",
-        "risk_coverage.csv",
-        "split_indices.json",
-        "thresholds.json",
-        "training_histories.json",
-    }
-    missing = sorted(name for name in required_files if not (RESULTS / name).exists())
-    require(not missing, f"Missing curated result files: {missing}")
-
-    comparison = read_csv(RESULTS / "comparison_table.csv")
-    require({row["model"] for row in comparison} == MODELS, "Comparison table model set is incorrect")
-    numeric_columns = {
-        "macro_f1", "micro_f1", "macro_auroc", "macro_average_precision",
-        "hard_brier", "soft_brier", "hard_ece", "soft_ece",
-        "mean_confidence", "mean_prediction_entropy",
-        "uncertainty_ambiguity_spearman", "high_agreement_hamming_error",
-        "low_agreement_hamming_error",
-    }
-    for row in comparison:
-        require(row["threshold_policy"] == "fixed_0.5", "Unexpected threshold policy")
-        require(all(finite_number(row[column]) for column in numeric_columns), "Non-finite comparison metric")
-
-    per_class = read_csv(RESULTS / "per_class_metrics.csv")
-    require(len(per_class) == 15, "Expected 15 per-class result rows")
-    require({row["model"] for row in per_class} == MODELS, "Per-class model set is incorrect")
-    require({row["event"] for row in per_class} == EVENTS, "Per-class event set is incorrect")
-
-    metadata = read_csv(RESULTS / "materialized_clip_metadata.csv")
-    require(len(metadata) == 2000, f"Expected 2,000 metadata rows, found {len(metadata)}")
-    hashes = [row["audio_sha256"] for row in metadata]
-    require(len(hashes) == len(set(hashes)), "Duplicate audio fingerprints found in reference run")
-    for row in metadata:
-        for event in EVENTS:
-            require(row[event] in {"0", "1", "2", "3"}, f"Invalid annotation count for {event}")
-
-    splits = json.loads((RESULTS / "split_indices.json").read_text(encoding="utf-8"))
-    require({name: len(values) for name, values in splits.items()} == {
-        "train": 1400, "validation": 300, "test": 300
-    }, "Unexpected reference split sizes")
-    split_sets = {name: set(values) for name, values in splits.items()}
-    require(split_sets["train"].isdisjoint(split_sets["validation"]), "Train/validation overlap")
-    require(split_sets["train"].isdisjoint(split_sets["test"]), "Train/test overlap")
-    require(split_sets["validation"].isdisjoint(split_sets["test"]), "Validation/test overlap")
-    require(set().union(*split_sets.values()) == set(range(2000)), "Splits do not partition all clips")
-
-    provenance = json.loads((RESULTS / "dataset_provenance.json").read_text(encoding="utf-8"))
-    require(provenance["materialized_successful_clips"] == 2000, "Incorrect provenance sample count")
-    require(provenance["decode_failures"] == 0, "Reference run contains decode failures")
-
-    figure_names = {path.name for path in (RESULTS / "figures").glob("*.png")}
-    require(figure_names == EXPECTED_FIGURES, "Figure set does not match the expected research outputs")
-    for figure in sorted((RESULTS / "figures").glob("*.png")):
-        width, height, dpi = png_metadata(figure)
-        require(width >= 1500 and height >= 1000, f"Figure resolution is too small: {figure}")
-        require(dpi is not None and dpi >= 299, f"Figure is not stored at 300 DPI: {figure}")
 
 
 def validate_revised_run() -> None:
@@ -312,11 +241,9 @@ def validate_revised_run() -> None:
 
 def main() -> int:
     validate_notebook()
-    validate_results()
     validate_revised_run()
     print("Repository validation passed.")
     print("- Notebook: nbformat, syntax, Colab/local setup, and revised pipeline checks")
-    print("- Historical results: schemas, finite metrics, 2,000-row partition, and 11 figures")
     print("- Revised run: full-stream provenance, metrics, grouped splits, and 13 figures")
     return 0
 

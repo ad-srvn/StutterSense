@@ -32,11 +32,6 @@ checkpoints/
 wandb/
 
 # Heavy generated artifacts (curated metrics and figures remain trackable)
-results/*.pt
-results/*.pth
-results/*.ckpt
-results/*.npz
-results/*.npy
 runs/**/*.npz
 *.zip
 *.parquet
