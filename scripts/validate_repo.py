@@ -17,7 +17,7 @@ import nbformat
 
 ROOT = Path(__file__).resolve().parents[1]
 NOTEBOOK = ROOT / "StutterSense.ipynb"
-REVISED_RUN = ROOT / "runs" / "2026-10-08-full-stream-seed42"
+REVISED_RUN = ROOT / "results"
 EVENTS = {"prolongation", "block", "sound_rep", "word_rep", "interjection"}
 REVISED_MODELS = {"hard", "soft", "brier_ablation", "ambiguity_multitask"}
 REVISED_FIGURES = {

@@ -36,10 +36,6 @@ Threshold-independent metrics repeat across threshold policies. Full precision i
 - The ambiguity head's mean per-event AUROC was 0.7046, similar to event entropy at 0.7034.
 - The Brier ablation had the lowest soft ECE but did not improve soft Brier or macro F1 over soft BCE.
 
-## Limitations
-
-This is a single-seed, single-split result. The schema contained no speaker or episode IDs, and all sampled audio hashes were unique; speaker leakage may remain. Quality-filter training and external FluencyBank evaluation were disabled. The findings do not establish clinical or speaker-independent performance.
-
 ## Files
 
 Primary tables are `metrics_by_seed.csv`, `per_class_metrics.csv`, `calibration_by_event.csv`, `thresholds.csv`, and `paired_group_bootstrap.csv`. Configuration, provenance, sample identifiers, splits, and histories are included alongside 13 figures. `artifact_manifest.json` records the ignored local checkpoints and embedding cache.

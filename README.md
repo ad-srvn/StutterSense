@@ -4,7 +4,7 @@ Annotator-aware, multi-label stuttering-event detection using frozen WavLM repre
 
 ## Results
 
-The validated [full-stream run](runs/2026-10-08-full-stream-seed42/README.md) scanned 21,856 hosted rows and sampled 2,000 clips with zero decoding failures. It used one seed and a 1,400/300/300 train/validation/test split.
+The validated [full-stream run](results/README.md) scanned 21,856 hosted rows and sampled 2,000 clips with zero decoding failures. It used one seed and a 1,400/300/300 train/validation/test split.
 
 | Model | Macro F1 at 0.5 | Macro F1 tuned | Macro AP | Soft Brier ↓ | Soft ECE ↓ |
 |---|---:|---:|---:|---:|---:|
@@ -20,7 +20,7 @@ The validated [full-stream run](runs/2026-10-08-full-stream-seed42/README.md) sc
 
 | Precision–recall | Risk–coverage |
 |---|---|
-| ![Precision–recall curves](runs/2026-10-08-full-stream-seed42/figures/I_precision_recall_curves.png) | ![Risk–coverage curves](runs/2026-10-08-full-stream-seed42/figures/F_risk_coverage.png) |
+| ![Precision–recall curves](results/figures/I_precision_recall_curves.png) | ![Risk–coverage curves](results/figures/F_risk_coverage.png) |
 
 ## Method
 
@@ -96,21 +96,11 @@ FluencyBank evaluation is disabled by default. Access requirements are documente
 }
 ```
 
-## Limitations
-
-- The revised results use one seed and one split.
-- The hosted schema exposed no speaker or episode IDs.
-- Threshold tuning can overfit small validation classes.
-- Annotation counts do not identify individual raters or reliability.
-- Calibration and bootstrap estimates are sample-sensitive.
-- The quality-filter training and external FluencyBank experiments were not run.
-- Results do not establish clinical validity or speaker-independent generalization.
-
 ## Repository
 
 ```text
 StutterSense.ipynb   Reproducible Colab/local experiment
-runs/                Revised run, metrics, provenance, and figures
+results/             Revised metrics, provenance, and figures
 tests/               Synthetic unit and smoke tests
 scripts/             Offline repository validation
 ```

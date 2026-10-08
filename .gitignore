@@ -32,7 +32,7 @@ checkpoints/
 wandb/
 
 # Heavy generated artifacts (curated metrics and figures remain trackable)
-runs/**/*.npz
+results/*.npz
 *.zip
 *.parquet
 *.arrow
