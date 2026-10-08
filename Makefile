@@ -10,8 +10,8 @@ notebook:
 
 validate:
 	.venv/bin/python scripts/validate_repo.py
+	.venv/bin/python -m unittest discover -s tests -v
 
 clean:
 	find . -type d -name __pycache__ -prune -exec rm -rf {} +
 	find . -type d -name .ipynb_checkpoints -prune -exec rm -rf {} +
-

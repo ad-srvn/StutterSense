@@ -1,0 +1,42 @@
+{
+  "git_policy": "Checkpoints and embedding caches are generated artifacts and are excluded from Git.",
+  "dataset_revision": "67630930030046543194dc7c701b87b2cdc7680f",
+  "model_revision": "4c66d4806a428f2e922ccfa1a962776e232d487b",
+  "local_artifacts": [
+    {
+      "path": "checkpoints/seed_42/ambiguity_multitask_best.pt",
+      "bytes": 801313,
+      "sha256": "cdeb086712c6848143110415af05b49fc109d5671e77e217cc1312fb3334ff53",
+      "variant": "ambiguity_multitask",
+      "best_validation_loss": 0.49036879658699034
+    },
+    {
+      "path": "checkpoints/seed_42/brier_ablation_best.pt",
+      "bytes": 795477,
+      "sha256": "30baa5bf5efa032dcd9ae3bc8a9fb6fc74bab086d7b7a14d77f1c5db1c06f91b",
+      "variant": "brier_ablation",
+      "best_validation_loss": 0.384635192155838
+    },
+    {
+      "path": "checkpoints/seed_42/hard_best.pt",
+      "bytes": 795377,
+      "sha256": "cac3fe2078e3db029fb1ea6d6e6aa4e6d6c16bfde26ac905da5950ae9fa57356",
+      "variant": "hard",
+      "best_validation_loss": 0.2965079516172409
+    },
+    {
+      "path": "checkpoints/seed_42/soft_best.pt",
+      "bytes": 795377,
+      "sha256": "4daf813f551f0087a1f2a044fc1a50b31af00f11fef8c8c32a46ced7dba0533e",
+      "variant": "soft",
+      "best_validation_loss": 0.3697820375363032
+    },
+    {
+      "path": "wavlm_embeddings_7ae6d874bedbe237.npz",
+      "bytes": 5715953,
+      "sha256": "ffaf6132dce5d5c61caafd329fc7d0120a92d7a021664d250f85c4b908cd388e",
+      "shape": [2000, 768],
+      "dtype": "float32"
+    }
+  ]
+}

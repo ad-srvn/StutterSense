@@ -23,7 +23,7 @@ The exported provenance predates repository-level dataset-revision pinning, so i
 - `training_histories.json`: train/validation objectives by epoch
 - `figures/`: 300-DPI research visualizations
 
-Local checkpoints (`*.pt`) and the WavLM embedding cache (`*.npz`) are retained for inspection but ignored by Git. They can be recreated by running the notebook.
+Local checkpoints (`*.pt`) and the WavLM embedding cache (`*.npz`) are generated artifacts and are not versioned. The committed tables, provenance, and figures are the historical reference.
 
 These outputs describe a duplicate-aware clip-level exploratory split, not a verified speaker-disjoint evaluation.
 
