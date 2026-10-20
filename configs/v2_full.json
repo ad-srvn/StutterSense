@@ -1,0 +1,58 @@
+{
+  "mode": "full",
+  "dataset": {
+    "dataset_id": "psusac/sep28k",
+    "subset": "default",
+    "split": "train",
+    "revision": "67630930030046543194dc7c701b87b2cdc7680f",
+    "sample_rate": 16000,
+    "metadata_manifest": null,
+    "verified_group_kind": null,
+    "verified_group_column": null,
+    "identity_source": null,
+    "identity_revision": null
+  },
+  "sampling": {
+    "sample_size": 2000,
+    "reservoir_seed": 42,
+    "scan_limit": null
+  },
+  "split": {
+    "train_fraction": 0.7,
+    "validation_fraction": 0.15,
+    "test_fraction": 0.15,
+    "seed": 42
+  },
+  "model": {
+    "encoder_name": "microsoft/wavlm-base-plus",
+    "encoder_revision": "4c66d4806a428f2e922ccfa1a962776e232d487b",
+    "frozen_encoder": true,
+    "reuse_embeddings": true,
+    "hidden_dim": 256,
+    "dropout": 0.2
+  },
+  "training": {
+    "seeds": [42, 123, 456],
+    "objectives": ["hard", "soft", "brier_ablation", "ambiguity_multitask"],
+    "epochs": 12,
+    "batch_size": 8,
+    "learning_rate": 0.001,
+    "early_stopping_patience": 3,
+    "brier_weight": 0.25,
+    "ambiguity_weight": 0.25,
+    "device": "auto"
+  },
+  "evaluation": {
+    "threshold_grid_size": 201,
+    "calibration_bins": 10,
+    "bootstrap_replicates": 1000,
+    "bootstrap_confidence": 0.95,
+    "risk_coverages": [0.1, 0.25, 0.5, 0.75, 1.0]
+  },
+  "output": {
+    "root": "v2_outputs",
+    "run_name": null,
+    "resume_from": null
+  },
+  "events": ["prolongation", "block", "sound_rep", "word_rep", "interjection"]
+}

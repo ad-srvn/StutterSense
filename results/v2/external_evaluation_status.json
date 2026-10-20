@@ -1,0 +1,5 @@
+{
+  "enabled": false,
+  "executed": false,
+  "reason": "Disabled by default; authorized audio and a verified manifest are required."
+}
